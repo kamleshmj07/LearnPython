@@ -60,14 +60,15 @@ def pd_selection_indexing():
   df = pd.read_csv(r'/home/runner/LearnPython/work/tips.csv')
   print(df, '\n')
 
-  print("1] Picking one column from df and checking it's type...", '\n')
+  print('1] Basic Column Operations', '\n')
+  print("Picking one column from df and checking it's type...", '\n')
   print(df['total_bill'], '\n')
   print(type(df['total_bill']), '\n')
 
-  print("2] Picking multiple columns from df...", '\n')
+  print("Picking multiple columns from df...", '\n')
   print(df[['total_bill', 'tip']], '\n')
 
-  print('3] Adding a new column...', '\n')
+  print('Adding a new column...', '\n')
   print('Before we do that, a few vector operations on the dataframe...', '\n')
   print('Get the total of tip and the bill...', '\n')
   print(df['tip'] + df['total_bill'], '\n')
@@ -78,7 +79,7 @@ def pd_selection_indexing():
   df["tip_percentage"] = 100* df['tip']/df['total_bill']
   print(df.head(5), '\n')
 
-  print('4] Dropping a column "(axis=1)", here "tip_percentage"','\n')
+  print('Dropping a column "(axis=1)", here "tip_percentage"','\n')
   # df.drop('tip_percentage') # throws error
   print(df.drop('tip_percentage', axis=1).head(2), '\n')
   print('Printing the orignal df...', '\n')
@@ -88,14 +89,28 @@ def pd_selection_indexing():
   print(df.head(2),'\n')
   print('Now it did actually drop from the dataframe... This is better!!!', '\n')
 
+  print('2] Basic Row Operations', '\n')
+  print("Let's set index for the dataframe, 'Payment ID' ", '\n')
+  df = df.set_index('Payment ID')
+  print(df.head(), '\n')
 
+  print('Resetting index is simple too...', '\n')
+  print(df.reset_index(),'\n')
+
+  print('Getting a row information based of default numeric index...', '\n')
+  print(df.iloc[1], '\n')
+  print('Getting a row information based of labelled index...', '\n')
+  print(df.loc['Sun2959'], '\n')
+
+  print('Grabbing multiple rows using array indexing with "iloc"...', '\n')
+  print(df.iloc[1:5], '\n')
+  print('Grabbing multiple columns using labelled index...', '\n')
+  print(df.loc[['Sun2959', 'Sun5260']], '\n')
+
+  print('Adding new row to the dataframe using ".append()"...', '\n')
+  one_row = df.iloc[0]
+  print(df.append(one_row), '\n')
   
-  print('3] Grab a row or multiple rows', '\n')
-
-  print('4] Insert a new column', '\n')
-
-  print('5] Insert a new row', '\n')
-
 
  
 
