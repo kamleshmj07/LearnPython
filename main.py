@@ -8,8 +8,8 @@ series_basics()
 
 """
 """
-from ds_lib.pandas_learning import pandas_basics
-pandas_basics()
+from ds_lib.pandas_learning import *
+pd_selection_indexing()
 
 
 
